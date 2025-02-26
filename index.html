@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Protected Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+        }
+        #secret-message {
+            display: none;
+            font-size: 24px;
+            color: green;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Enter the password to see the secret message:</h2>
+    
+    <!-- Password input field -->
+    <input type="password" id="password" placeholder="Enter password">
+    <button onclick="checkPassword()">Submit</button>
+
+    <!-- Hidden message that will appear when the correct password is entered -->
+    <div id="secret-message">
+        <p>Congratulations! You have unlocked the secret message!</p>
+    </div>
+
+    <script>
+        // Set the correct password here
+        const correctPassword = "mySecret123"; // Change this to your desired password
+
+        function checkPassword() {
+            // Get the password entered by the user
+            const enteredPassword = document.getElementById("password").value;
+            console.log("Entered Password: ", enteredPassword); // For debugging
+
+            // Check if the entered password matches the correct password
+            if (enteredPassword === correctPassword) {
+                console.log("Password correct!"); // For debugging
+                // If the password is correct, show the secret message
+                document.getElementById("secret-message").style.display = "block";
+            } else {
+                console.log("Password incorrect!"); // For debugging
+                // If the password is incorrect, show an alert
+                alert("Incorrect password! Please try again.");
+            }
+        }
+    </script>
+
+</body>
+</html>
